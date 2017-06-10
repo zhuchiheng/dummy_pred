@@ -880,7 +880,7 @@ class Model_CNN_NDC_relu:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.output_shape)
+            print((layer.output_shape))
         print("\n\n")
         # exit(0)
 
@@ -963,7 +963,7 @@ class Model_CNN_NDC_relu:
     def data_features(self):
         features = t5m.features()
         for i in range(len(features)):
-            print("{} - {}".format(i, features[i]))
+            print(("{} - {}".format(i, features[i])))
         return
 
     def scale_result(self, dataset):
@@ -982,8 +982,8 @@ class Model_CNN_NDC_relu:
             value_c = np_utils.to_categorical(v, self.result_categores)
             new_dataset[i] = value_c
 
-        print("{0} Samples distributions: ".format(new_dataset.shape[0]))
-        print(np.sum(new_dataset, axis=0))
+        print(("{0} Samples distributions: ".format(new_dataset.shape[0])))
+        print((np.sum(new_dataset, axis=0)))
         return new_dataset
 
     def rev_scale_result(self, dataset):
@@ -1008,13 +1008,13 @@ class Model_CNN_NDC_relu:
 
         pd.set_option('display.max_rows', len(y_validation))
 
-        print(y_train.shape)
-        print(np.random.choice(y_train[:, 0], size=30, replace=False))
-        print("-" * 30)
-        print(np.random.choice(y_validation[:, 0], size=30, replace=False))
-        print("-" * 30)
-        print(np.random.choice(y_test[:, 0], size=30, replace=False))
-        print("-" * 30)
+        print((y_train.shape))
+        print((np.random.choice(y_train[:, 0], size=30, replace=False)))
+        print(("-" * 30))
+        print((np.random.choice(y_validation[:, 0], size=30, replace=False)))
+        print(("-" * 30))
+        print((np.random.choice(y_test[:, 0], size=30, replace=False)))
+        print(("-" * 30))
 
         callbacks = [
             EarlyStopping(monitor='val_loss', min_delta=0.05, patience=3, verbose=1, mode='min')
@@ -1038,8 +1038,8 @@ class Model_CNN_NDC_relu:
             print('\nTesting ------------')
             loss, acc = self._model.evaluate(X_test, y_test, batch_size=batch_size)
 
-            print('\n\nloss: ', loss)
-            print('test acc: ', acc)
+            print(('\n\nloss: ', loss))
+            print(('test acc: ', acc))
             # print('test mean_absolute_error: ', mae)
             # print('test act: {}\tmax: {}\tmin: {} '.format(act, max, min))
 

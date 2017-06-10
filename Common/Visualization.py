@@ -41,7 +41,7 @@ def animate_data(data_2d_list, labels=[], stock_code=None):
             x = int(x)
             y = event.ydata
             label = labels[x]
-            print("x:{0}\t Column: {1}\t ".format(x, label))
+            print(("x:{0}\t Column: {1}\t ".format(x, label)))
 
     fig.canvas.mpl_connect('button_press_event', onpick)
     img_list = []
@@ -77,8 +77,8 @@ def animate_data(data_2d_list, labels=[], stock_code=None):
 
 def animate_data3d(data_2d_list, labels=[], stock_code=None):
     # transforming data
-    X = range(data_2d_list[0].shape[1])
-    Y = range(data_2d_list[0].shape[0])
+    X = list(range(data_2d_list[0].shape[1]))
+    Y = list(range(data_2d_list[0].shape[0]))
     X, Y = np.meshgrid(X, Y)
     Z = data_2d_list[0]
     Z_MIN, Z_MAX = -6, 6

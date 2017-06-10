@@ -102,7 +102,7 @@ def init_graph(data):
     ax1 = fig.add_subplot(gs[0:2, 0:2])
     ax1.set_title('History Fitting - Perceptron #1')
     ax1.grid()
-    ax1.plot(range(len(result)),
+    ax1.plot(list(range(len(result))),
              result,
              color='b', alpha=0.8,
              marker='.')
@@ -115,9 +115,9 @@ def init_graph(data):
     ax2.set_title('Future Prediction')
     act_future = data.get('test_result_act')
 
-    ax2.plot(range(zoom_window_size),
+    ax2.plot(list(range(zoom_window_size)),
              scaler.inverse_transform(values[-(zoom_window_size):]), color='b', alpha=0.9, marker='.')
-    ax2.plot(range(zoom_window_size - 1, zoom_window_size + len(act_future)),
+    ax2.plot(list(range(zoom_window_size - 1, zoom_window_size + len(act_future))),
              list(scaler.inverse_transform(values[-1])) + list(act_future)
              , color='deepskyblue', alpha=1, marker='o')
     val_min = scaler.inverse_transform(
@@ -147,23 +147,23 @@ def init_graph(data):
     ax_s4.grid()
     ax_s5.grid()
 
-    ax_s1.plot(range(zoom_window_size + prediction_step),
+    ax_s1.plot(list(range(zoom_window_size + prediction_step)),
                scaler.inverse_transform(result[-(zoom_window_size + prediction_step):]), color='b', alpha=0.9,
                marker='.')
 
-    ax_s2.plot(range(zoom_window_size + prediction_step),
+    ax_s2.plot(list(range(zoom_window_size + prediction_step)),
                scaler.inverse_transform(result[-(zoom_window_size + prediction_step):]), color='b', alpha=0.9,
                marker='.')
 
-    ax_s3.plot(range(zoom_window_size + prediction_step),
+    ax_s3.plot(list(range(zoom_window_size + prediction_step)),
                scaler.inverse_transform(result[-(zoom_window_size + prediction_step):]), color='b', alpha=0.9,
                marker='.')
 
-    ax_s4.plot(range(zoom_window_size + prediction_step),
+    ax_s4.plot(list(range(zoom_window_size + prediction_step)),
                scaler.inverse_transform(result[-(zoom_window_size + prediction_step):]), color='b', alpha=0.9,
                marker='.')
 
-    ax_s5.plot(range(zoom_window_size + prediction_step),
+    ax_s5.plot(list(range(zoom_window_size + prediction_step)),
                scaler.inverse_transform(result[-(zoom_window_size + prediction_step):]), color='b', alpha=0.9,
                marker='.')
 
@@ -341,10 +341,10 @@ class DataVisualizer(keras.callbacks.Callback):
                 logs['loss'], logs['val_loss']))
 
         pred_train_y = self.model.predict(self.data.get('training_set')[i])
-        self.lines.get('tr_line').set_data(range(len(pred_train_y)), pred_train_y)
+        self.lines.get('tr_line').set_data(list(range(len(pred_train_y))), pred_train_y)
 
         self.lines.get('fitting_lines')[self.preceptron_id] \
-            .set_data(range(zoom_window_size + prediction_step),
+            .set_data(list(range(zoom_window_size + prediction_step)),
                       self.data.get('scaler').inverse_transform(
                           pred_train_y[
                           -(zoom_window_size + prediction_step):]))
@@ -387,9 +387,9 @@ for i in range(prediction_step):
     model.load_weights(model_weight_file.format(i + 1))
 
     pred_train_y = model.predict(data.get('training_set')[i])
-    lines.get('tr_line').set_data(range(len(pred_train_y)), pred_train_y)
+    lines.get('tr_line').set_data(list(range(len(pred_train_y))), pred_train_y)
     lines.get('fitting_lines')[i] \
-        .set_data(range(zoom_window_size + prediction_step),
+        .set_data(list(range(zoom_window_size + prediction_step)),
                   data.get('scaler').inverse_transform(
                       pred_train_y[
                       -(zoom_window_size + prediction_step):]))
@@ -398,14 +398,14 @@ for i in range(prediction_step):
 
     pred_value = models[i].get('model').predict(data.get('test_set')[i])
     pred_value = data.get('scaler').inverse_transform(list(pred_train_y[-1]) + list(pred_value))
-    lines.get('pr_lines')[i].set_data(range(zoom_window_size - 1, zoom_window_size + len(pred_value) - 1),
+    lines.get('pr_lines')[i].set_data(list(range(zoom_window_size - 1, zoom_window_size + len(pred_value) - 1)),
                                       pred_value)
     print(pred_value)
-    print(i, '-' * 100)
+    print((i, '-' * 100))
 
     # 打印输出真实数据作比较
-    print(data.get('scaler').inverse_transform(list(data.get('dataset')[-1]) + list(data.get('test_result'))))
-    print(i, '-' * 100)
+    print((data.get('scaler').inverse_transform(list(data.get('dataset')[-1]) + list(data.get('test_result')))))
+    print((i, '-' * 100))
 
     plt.pause(0.5)
 

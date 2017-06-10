@@ -886,7 +886,7 @@ class Model_CNN_NDC:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.output_shape)
+            print((layer.output_shape))
         print("\n\n")
         # exit(0)
 
@@ -975,7 +975,7 @@ class Model_CNN_NDC:
     def data_features(self):
         features = t5m.features()
         for i in range(len(features)):
-            print("{} - {}".format(i, features[i]))
+            print(("{} - {}".format(i, features[i])))
         return
 
     def scale_result(self, dataset):
@@ -994,8 +994,8 @@ class Model_CNN_NDC:
             new_dataset[i] = value_c
 
         # only for verify
-        print("{0} Samples distributions: ".format(new_dataset.shape[0]))
-        print(np.sum(new_dataset, axis=0))
+        print(("{0} Samples distributions: ".format(new_dataset.shape[0])))
+        print((np.sum(new_dataset, axis=0)))
 
         # dataset[:, 0] = (dataset[:, 0] - self.result_min) / (self.result_max - self.result_min)
         # dataset[:, 0] *= 10
@@ -1058,8 +1058,8 @@ class Model_CNN_NDC:
 
             loss, acc = self._model.evaluate(X_test, y_test, batch_size=batch_size)
 
-            print('\n\nloss: ', loss)
-            print('test acc: ', acc)
+            print(('\n\nloss: ', loss))
+            print(('test acc: ', acc))
 
 
             # self._model.save(self._model_file)

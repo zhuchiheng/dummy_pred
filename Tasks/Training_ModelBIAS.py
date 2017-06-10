@@ -16,7 +16,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(PROJECT_ROOT)
 
 if len(sys.argv) < 2:
-    print("{0} start_date end_date".format(sys.argv[0]))
+    print(("{0} start_date end_date".format(sys.argv[0])))
     exit(0)
 elif len(sys.argv) == 2:
     start_date = datetime.datetime.strptime(str(sys.argv[1]), "%Y-%m-%d").date()
@@ -82,14 +82,14 @@ count = data.shape[0]
                                validation_samples_ratio=0.05,
                                test_samples_ratio=0.05)
 
-print("Total data set size: {}\n"
+print(("Total data set size: {}\n"
       "Training set size: {}\n"
       "Validation set size: {}\n"
       "Test set size: {}\n".format(count, training_data.shape[0],
                                    validation_data.shape[0],
-                                   test_data.shape[0]))
+                                   test_data.shape[0])))
 
-print("training result max:{} min:{}".format(round(np.max(training_result),2), round(np.min(training_result)),2))
+print(("training result max:{} min:{}".format(round(np.max(training_result),2), round(np.min(training_result)),2)))
 
 model.train([training_data, training_result],
             [validation_data, validation_result],

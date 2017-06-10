@@ -77,7 +77,7 @@ training_y = result[:sep_pt]
 validation_y = result[sep_pt:sep_pt + sep_pt2]
 test_y = result[sep_pt + sep_pt2:]
 
-print(len(dataset), len(training_X), len(validation_X), len(test_X))
+print((len(dataset), len(training_X), len(validation_X), len(test_X)))
 print(training_X)
 print(validation_X)
 print(test_X)

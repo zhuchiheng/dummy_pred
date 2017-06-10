@@ -20,7 +20,7 @@ m5m = Model5MT1(MODEL_NAME)
 start_ts = clock()
 X, y = m5m.prepare_data(STOCK_CODE, START_DATE, END_DATE, use_cache=True)
 finish_ts = clock()
-print("\nExecution time: {:10.6} s".format(finish_ts - start_ts))
+print(("\nExecution time: {:10.6} s".format(finish_ts - start_ts)))
 
 labels = m5m.data_features();
 v.animate_data3d(X, labels, STOCK_CODE)

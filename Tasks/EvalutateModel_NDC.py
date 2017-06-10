@@ -17,7 +17,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(PROJECT_ROOT)
 
 if len(sys.argv) < 2:
-    print("{0} start_date end_date".format(sys.argv[0]))
+    print(("{0} start_date end_date".format(sys.argv[0])))
     exit(0)
 elif len(sys.argv) == 2:
     start_date = datetime.datetime.strptime(str(sys.argv[1]), "%Y-%m-%d").date()
@@ -44,7 +44,7 @@ real_results = real_results.as_matrix()[:, 0]
 # data = data[:1000]
 # real_results = results[:1000]
 
-print("Evaluating {} samples".format(data.shape[0]))
+print(("Evaluating {} samples".format(data.shape[0])))
 pred_results = model.predict(data)
 pred_results = pred_results.reshape(1, -1)
 

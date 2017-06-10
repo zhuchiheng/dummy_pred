@@ -12,7 +12,7 @@ def load_data_to_db():
             file_path = os.path.join(cur, f);
             print(file_path)
             if file_path.endswith('zip'):
-                print("Extracting file {0}".format(file_path))
+                print(("Extracting file {0}".format(file_path)))
                 _unzip_file(cur, file_path)
     print("Loading data")
     for cur, _dirs, files in os.walk(path):
@@ -21,7 +21,7 @@ def load_data_to_db():
             file_path = os.path.join(cur, f);
             print(file_path)
             if file_path.endswith('csv'):
-                print("Loading data file {0}".format(file_path))
+                print(("Loading data file {0}".format(file_path)))
                 _load_data_files(file_path)
 
 
@@ -50,7 +50,7 @@ def _load_data_files(file_path):
                          names=['code', 'time', 'open', 'high', 'low', 'close', 'vol', 'amount', 'count'])
         try:
             df.to_sql(name=table_name, con=config.DB_CONN, if_exists="append", index=False)
-            print('Stock File [{}] loaded'.format(file_path))
+            print(('Stock File [{}] loaded'.format(file_path)))
         except Exception:
-            print("File [{}] has duplicated records! - skipped".format(file_path))
+            print(("File [{}] has duplicated records! - skipped".format(file_path)))
 

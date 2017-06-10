@@ -107,7 +107,7 @@ else:
     rs_df = result
     rs_df.to_csv(path_or_buf=rs_cache_file, index=False)
 
-print("dataset: {}\t result:{}".format(dataset.shape[0], result.shape[0]))
+print(("dataset: {}\t result:{}".format(dataset.shape[0], result.shape[0])))
 total = int(dataset.shape[0] / batch_size) * batch_size
 dataset = dataset[:total]
 result = result[:total]
@@ -118,9 +118,9 @@ sep_pt = int(int((sep_pt / batch_size)) * batch_size)
 sep_pt2 = (dataset.shape[0] - sep_pt) * test_splitter
 sep_pt2 = int(int((sep_pt2 / batch_size)) * batch_size)
 
-print("after dropout:{}\t ".format(total))
-print("sep_pt: {}".format(sep_pt))
-print("sep_pt2: {}".format(sep_pt2))
+print(("after dropout:{}\t ".format(total)))
+print(("sep_pt: {}".format(sep_pt)))
+print(("sep_pt2: {}".format(sep_pt2)))
 
 # 整理训练数据集
 training_X = dataset[:sep_pt]
@@ -148,7 +148,7 @@ sep_line2 = plt.plot(np.repeat(sep_pt + sep_pt2 - 1, 2), (sep_max, sep_min), col
 training_display = training_y.reshape(-1)
 validation_display = test_y.reshape(-1)
 
-raw_line = plt.plot(range(result.shape[0]), result.values, color='b')
+raw_line = plt.plot(list(range(result.shape[0])), result.values, color='b')
 
 training_line = plt.plot([sep_pt], [validation_display[0]],
                          color='lime')
@@ -175,7 +175,7 @@ class DataVisualized(keras.callbacks.Callback):
     def on_epoch_end(self, epoch, logs=None):
         if self.epoch_c % 5 == 0:
             res = self.model.evaluate(test_X, test_y, batch_size=batch_size, verbose=1)
-            print("\n\nEvaluation:", res)
+            print(("\n\nEvaluation:", res))
 
             training_pred = self.model.predict(training_X, batch_size=batch_size)
             training_line[0].set_data(np.arange(len(training_pred)), training_pred)

@@ -860,7 +860,7 @@ class Model_CNN_NDC:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.output_shape)
+            print((layer.output_shape))
         print("\n\n")
         # exit(0)
 
@@ -931,7 +931,7 @@ class Model_CNN_NDC:
     def data_features(self):
         features = t5m.features()
         for i in range(len(features)):
-            print("{} - {}".format(i, features[i]))
+            print(("{} - {}".format(i, features[i])))
         return
 
     def train(self, training_set, validation_set, test_set):
@@ -966,10 +966,10 @@ class Model_CNN_NDC:
             print('\nTesting ------------')
             loss, mse, mae, max_ae = self._model.evaluate(X_test, y_test, batch_size=batch_size)
 
-            print('\n\nloss: ', loss)
-            print('test mean_absolute_error: ', mae)
-            print('test mean_squred_error: ', mse)
-            print('test max_absolute_error: ', max_ae)
+            print(('\n\nloss: ', loss))
+            print(('test mean_absolute_error: ', mae))
+            print(('test mean_squred_error: ', mse))
+            print(('test max_absolute_error: ', max_ae))
             # self._model.save(self._model_file)
             self._model.save_weights(self._weight_file)
             print("model saved\n\n")

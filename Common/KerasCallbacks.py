@@ -51,6 +51,6 @@ class DataTester(keras.callbacks.Callback):
         self.epoch_c += 1
         if self.epoch_c % self.period:
             loss = self.model.evaluate(self.x_data, self.x_data, batch_size=32, verbose=1)
-            print('\n\nevaluation result: ', loss)
+            print(('\n\nevaluation result: ', loss))
 
         pass

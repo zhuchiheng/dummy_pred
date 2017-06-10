@@ -42,7 +42,7 @@ class ModelPriceChange:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.name, layer.output_shape, layer.trainable)
+            print((layer.name, layer.output_shape, layer.trainable))
         print("\n\n")
 
         from Common.KerasMetrics import mean_error_rate
@@ -62,16 +62,16 @@ class ModelPriceChange:
             price_change_in
         ]
         input = np.concatenate(input, axis=2)
-        print(input.shape)
+        print((input.shape))
         input = input.reshape(input.shape[0], -1)
 
         v_max = 2.5
         v_min = -2.5
-        print("\nraw input range: {} to {}".format(np.min(input), np.max(input)))
-        print("adjusted range limit: {} to {}".format(v_min, v_max))
+        print(("\nraw input range: {} to {}".format(np.min(input), np.max(input))))
+        print(("adjusted range limit: {} to {}".format(v_min, v_max)))
 
         input = ((input - v_min) / (v_max - v_min)) - 0.5
-        print(input.shape)
+        print((input.shape))
         # input = input.reshape(-1)
         input = np.tanh(input)
         input += 2
@@ -133,6 +133,6 @@ class ModelPriceChange:
         print("Lockdown network output layout")
         for layer in self._model.layers:
             layer.trainable = False
-            print(layer.name, layer.output_shape, layer.trainable)
+            print((layer.name, layer.output_shape, layer.trainable))
         print("\n\n")
         return encoder

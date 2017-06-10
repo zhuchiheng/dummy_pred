@@ -61,7 +61,7 @@ def init(stock_code, start_date):
     time_offset = datetime.timedelta(days=30)
     LIMIT_SAMPLE_START = datetime.date(start_date.year, start_date.month, 1) - time_offset * 2
     LIMIT_SAMPLE_END = LIMIT_SAMPLE_START + time_offset
-    print("Date sample range: {0} to {1}".format(LIMIT_SAMPLE_START, LIMIT_SAMPLE_END))
+    print(("Date sample range: {0} to {1}".format(LIMIT_SAMPLE_START, LIMIT_SAMPLE_END)))
     session = sessionmaker()
     session.configure(bind=config.DB_CONN)
     s = session()
@@ -80,9 +80,9 @@ def init(stock_code, start_date):
 
     STOCK_CODE = stock_code
     s.close()
-    print("Price: {} - {} - {} \n"
+    print(("Price: {} - {} - {} \n"
           "Vol: {} - {} - {} \n"
-          "Count: {} - {}".format(PRICE_MIN, PRICE_AVG, PRICE_MAX, VOL_MIN, VOL_AVG, VOL_MAX, COUNT_MIN, COUNT_MAX))
+          "Count: {} - {}".format(PRICE_MIN, PRICE_AVG, PRICE_MAX, VOL_MIN, VOL_AVG, VOL_MAX, COUNT_MIN, COUNT_MAX)))
     return
 
 
@@ -247,7 +247,7 @@ def feature_select(df):
 
 
 def feature_scaling(df):
-    print(df.head(100))
+    print((df.head(100)))
     # 价格缩放比
     # 成交量缩放比
     # 振幅/涨幅缩放比
@@ -366,9 +366,9 @@ def feature_scaling(df):
     # df[['close']] = (df[['close']] - price_min) / (price_max - price_min)
     df = df.drop(labels='close', axis=1)
 
-    print(df.head(400))
-    print(df.shape)
-    print(pd.DataFrame(df.columns[1:]))
+    print((df.head(400)))
+    print((df.shape))
+    print((pd.DataFrame(df.columns[1:])))
     return df
 
 

@@ -272,7 +272,7 @@ class Model5MT1:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.output_shape)
+            print((layer.output_shape))
         print("\n\n")
         # exit(0)
 
@@ -386,8 +386,8 @@ class Model5MT1:
             print('\nTesting ------------')
             # Evaluate the model with the metrics we defined earlier
             loss, accuracy = self._model.evaluate(X_test, y_test, batch_size=200)
-            print('\ntest accuracy: ', accuracy)
-            print('test loss: ', loss)
+            print(('\ntest accuracy: ', accuracy))
+            print(('test loss: ', loss))
             self._model.save(self._name + "-model")
             self._model.save_weights(self._name + "-weights")
             retry += 1

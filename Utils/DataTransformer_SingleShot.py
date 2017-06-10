@@ -13,7 +13,7 @@ from DataTransform.Transform5M import process_single_shot
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("{0} start_date end_date".format(sys.argv[0]))
+        print(("{0} start_date end_date".format(sys.argv[0])))
         exit(0)
 
     code = str(sys.argv[1])

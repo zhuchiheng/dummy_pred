@@ -9,7 +9,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(PROJECT_ROOT)
 
 if len(sys.argv) < 2:
-    print("{0} start_date end_date".format(sys.argv[0]))
+    print(("{0} start_date end_date".format(sys.argv[0])))
     exit(0)
 elif len(sys.argv) == 2:
     start_date = datetime.datetime.strptime(str(sys.argv[1]), "%Y-%m-%d").date()
@@ -48,7 +48,7 @@ for i in range(len(dist) - 1):
 
 report = report.set_index("range")
 print(report)
-print("\nTotal: {} records".format(np.sum(report['count'])))
+print(("\nTotal: {} records".format(np.sum(report['count']))))
 
 fig, ax = plt.subplots()
 rects1 = plt.bar(np.arange(len(report['count'].index)), tuple(report['count'].values), color='b')

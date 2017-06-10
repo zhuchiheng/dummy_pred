@@ -79,9 +79,9 @@ for code in stock_codes:
     X, y = m5m.prepare_data(code, START_DATE, END_DATE, use_cache=True)
     X_list.append(X)
     y_list.append(y)
-    print("\nStock code:", code)
-    print("{0} Samples distributions: ".format(X.shape[0]))
-    print(np.sum(y, axis=0))
+    print(("\nStock code:", code))
+    print(("{0} Samples distributions: ".format(X.shape[0])))
+    print((np.sum(y, axis=0)))
 X = np.vstack(X_list)
 y = np.vstack(y_list)
 
@@ -93,9 +93,9 @@ for x in X:
     x = x.reshape(1, x.shape[0], x.shape[1])
     r = m5m.predict(x)
     real_r = y[i]
-    print("{0}\t{1}\t{2}".format(real_r, r[0], np.abs(real_r - r[0])))
+    print(("{0}\t{1}\t{2}".format(real_r, r[0], np.abs(real_r - r[0]))))
     if r[0] != real_r:
         err += 1
     i += 1
 
-print("Err count: {0}  rate:{1}".format(err, np.round(err / X.shape[0] * 100)))
+print(("Err count: {0}  rate:{1}".format(err, np.round(err / X.shape[0] * 100))))

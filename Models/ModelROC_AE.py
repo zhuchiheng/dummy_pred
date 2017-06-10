@@ -40,7 +40,7 @@ class ModelROC:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.name, layer.output_shape)
+            print((layer.name, layer.output_shape))
         print("\n\n")
 
         from Common.KerasMetrics import mean_error_rate
@@ -60,16 +60,16 @@ class ModelROC:
             roc_in
         ]
         input = np.concatenate(input, axis=2)
-        print(input.shape)
+        print((input.shape))
 
         v_max = 4
         v_min = -4
 
-        print("\nraw input range: {} to {}".format(np.min(input), np.max(input)))
-        print("adjusted range limit: {} to {}".format(v_min, v_max))
+        print(("\nraw input range: {} to {}".format(np.min(input), np.max(input))))
+        print(("adjusted range limit: {} to {}".format(v_min, v_max)))
 
         input = ((input - v_min) / (v_max - v_min)) - 0.5
-        print(input.shape)
+        print((input.shape))
         # input = input.reshape(-1)
         input = np.tanh(input)
         input += 2
@@ -78,9 +78,9 @@ class ModelROC:
 
 
         # input = ((input - v_min) / (v_max - v_min) + 1.5) ** 12
-        print("adjusted input range: {} to {}".format(np.min(input), np.max(input)))
-        print("transformed input shape: ", input.shape)
-        print("--" * 20)
+        print(("adjusted input range: {} to {}".format(np.min(input), np.max(input))))
+        print(("transformed input shape: ", input.shape))
+        print(("--" * 20))
         # exit(0)
         return input
 
@@ -127,6 +127,6 @@ class ModelROC:
         print("Lockdown network output layout")
         for layer in self._model.layers:
             layer.trainable = False
-            print(layer.name, layer.output_shape, layer.trainable)
+            print((layer.name, layer.output_shape, layer.trainable))
         print("\n\n")
         return encoder

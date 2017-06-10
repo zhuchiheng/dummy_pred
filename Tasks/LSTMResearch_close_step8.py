@@ -143,10 +143,10 @@ dataset = dataset_new
 result['change'] = (result['change'] * 10 + 1) * 10
 result = result.values
 result = to_categorical(result, categories)
-print(result[:20])
+print((result[:20]))
 
 
-print("dataset: {}\t result:{}".format(dataset.shape[0], result.shape[0]))
+print(("dataset: {}\t result:{}".format(dataset.shape[0], result.shape[0])))
 total = int(dataset.shape[0] / batch_size) * batch_size
 dataset = dataset[:total]
 result = result[:total]
@@ -172,8 +172,8 @@ training_y = result_arr[:sep_pt]
 validation_y = result_arr[sep_pt:]
 test_y = validation_y[sep_pt2:]
 validation_y = validation_y[:sep_pt2]
-print(training_X.shape, validation_X.shape, test_X.shape)
-print(training_y.shape, validation_y.shape, test_y.shape)
+print((training_X.shape, validation_X.shape, test_X.shape))
+print((training_y.shape, validation_y.shape, test_y.shape))
 
 # 准备训练
 reduce_lr = ReduceLROnPlateau(monitor='val_loss',
@@ -234,7 +234,7 @@ model = Sequential([
 ])
 training_X = training_X.reshape(training_X.shape[0], -1)
 validation_X = validation_X.reshape(validation_X.shape[0], -1)
-print(training_X.shape)
+print((training_X.shape))
 
 model.compile(optimizer='adadelta',
               loss='categorical_crossentropy',

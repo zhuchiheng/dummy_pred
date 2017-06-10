@@ -40,7 +40,7 @@ class ModelPSY:
 
         print("Network output layout")
         for layer in self._model.layers:
-            print(layer.name, layer.output_shape)
+            print((layer.name, layer.output_shape))
         print("\n\n")
 
         from Common.KerasMetrics import mean_error_rate
@@ -89,9 +89,9 @@ class ModelPSY:
 
 
         # input = ((input - v_min) / (v_max - v_min) + 1.5) ** 12
-        print("adjusted input range: {} to {}".format(np.min(input), np.max(input)))
-        print("transformed input shape: ", input.shape)
-        print("--" * 20)
+        print(("adjusted input range: {} to {}".format(np.min(input), np.max(input))))
+        print(("transformed input shape: ", input.shape))
+        print(("--" * 20))
         # exit(0)
         return input
 
@@ -138,6 +138,6 @@ class ModelPSY:
         print("Lockdown network output layout")
         for layer in self._model.layers:
             layer.trainable = False
-            print(layer.name, layer.output_shape, layer.trainable)
+            print((layer.name, layer.output_shape, layer.trainable))
         print("\n\n")
         return encoder

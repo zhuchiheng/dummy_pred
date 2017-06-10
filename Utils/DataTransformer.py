@@ -13,7 +13,7 @@ from DataTransform.Transform5M import process_date_range
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("{0} start_date end_date".format(sys.argv[0]))
+        print(("{0} start_date end_date".format(sys.argv[0])))
         exit(0)
 
     start_date = datetime.datetime.strptime(str(sys.argv[1]), "%Y-%m-%d").date()

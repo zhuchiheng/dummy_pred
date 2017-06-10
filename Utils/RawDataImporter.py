@@ -13,5 +13,5 @@ import Common.config as config
 import DataLoader.MinutesDataLoader as DataLoader
 
 if __name__ == "__main__":
-    print("\n\nImporting data from path: {0} \n\n".format(config.MINUTE_DATA_PATH))
+    print(("\n\nImporting data from path: {0} \n\n".format(config.MINUTE_DATA_PATH)))
     DataLoader.load_data_to_db()

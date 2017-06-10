@@ -111,7 +111,7 @@ else:
     rs_df = result
     rs_df.to_csv(path_or_buf=rs_cache_file, index=False)
 
-print("dataset: {}\t result:{}".format(dataset.shape[0], result.shape[0]))
+print(("dataset: {}\t result:{}".format(dataset.shape[0], result.shape[0])))
 total = int(dataset.shape[0] / batch_size) * batch_size
 dataset = dataset[:total]
 result = result[:total]
@@ -119,8 +119,8 @@ result = result[:total]
 sep_pt = int(dataset.shape[0] * data_splitter)
 sep_pt = int(int((sep_pt / batch_size)) * batch_size)
 
-print("after dropout:{}\t ".format(total))
-print("sep_pt: {}".format(sep_pt))
+print(("after dropout:{}\t ".format(total)))
+print(("sep_pt: {}".format(sep_pt)))
 
 # 整理训练数据集
 training_X = dataset[:sep_pt]
@@ -147,7 +147,7 @@ prediction_display = test_y.reshape(-1)
 # prediction_display = np.hstack((prediction_prepend[prediction_prepend.shape[0]-prediction_step:], prediction_display))
 
 
-raw_line = plt.plot(range(result.shape[0]), result.values, color='b')
+raw_line = plt.plot(list(range(result.shape[0])), result.values, color='b')
 
 training_line = plt.plot([sep_pt], [prediction_display[0]],
                          color='lime')

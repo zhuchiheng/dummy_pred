@@ -76,7 +76,7 @@ ax.set_yticklabels(minor_ticks, minor=True)
 # result
 
 
-future_line = plt.plot(range(df.shape[0]), df[col].values, color='b', alpha=0.4)
+future_line = plt.plot(list(range(df.shape[0])), df[col].values, color='b', alpha=0.4)
 past_line = plt.plot([0], [df[col].values[0]], color='b', alpha=1, marker='.')
 
 pred_line = plt.plot([0], [df[col].values[0]], color='r', alpha=1, marker='.')
@@ -162,7 +162,7 @@ for i, row in df.iterrows():
         input_bak = input_data.copy()
         np.set_printoptions(threshold=np.inf, linewidth=1000)
         pred_data = pred_future(input_data)
-        print(input_bak[-10:],pred_data[10:])
+        print((input_bak[-10:],pred_data[10:]))
         past_pred_line[0].set_data(np.arange(sep_pos, sep_pos + batch_size),
                                    pred_data)
         # exit(0)

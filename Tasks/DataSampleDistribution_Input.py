@@ -9,7 +9,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(PROJECT_ROOT)
 
 if len(sys.argv) < 2:
-    print("{0} start_date end_date".format(sys.argv[0]))
+    print(("{0} start_date end_date".format(sys.argv[0])))
     exit(0)
 elif len(sys.argv) == 2:
     start_date = datetime.datetime.strptime(str(sys.argv[1]), "%Y-%m-%d").date()
@@ -53,8 +53,8 @@ v_max = 5
 v_min = 0
 
 
-print("\nraw input range: {} to {}".format(np.min(input), np.max(input)))
-print("adjusted range limit: {} to {}".format(v_min, v_max))
+print(("\nraw input range: {} to {}".format(np.min(input), np.max(input))))
+print(("adjusted range limit: {} to {}".format(v_min, v_max)))
 
 # 缩放数据测试
 c = y
@@ -69,11 +69,11 @@ y = input
 # c = np.tanh(c)
 # c += 2
 
-print("\nscaled input range: {} to {}".format(np.min(y), np.max(y)))
+print(("\nscaled input range: {} to {}".format(np.min(y), np.max(y))))
 import matplotlib.pyplot as plt
 
-x = range(len(y))
-print(len(x), len(y))
+x = list(range(len(y)))
+print((len(x), len(y)))
 fig, ax = plt.subplots(figsize=(10, 8))
 plt.title('Sample Distribution CCI')
 ax.grid()
